@@ -1,0 +1,15 @@
+#Expyriment 1.0.0 (Python 3.13.7), .xpe-file, coding: UTF-8
+#date: Wed Sep 17 2025 19:30:47
+#sha1: cd6b8a
+#modules: 
+#display: size=(800, 600), window_mode=True, opengl=2
+#os: uname_result(system='Darwin', node='YixuandeMacBook-Air.local', release='24.6.0', version='Darwin Kernel Version 24.6.0: Mon Jul 14 11:30:40 PDT 2025; root:xnu-11417.140.69~1/RELEASE_ARM64_T8132', machine='arm64')
+Time,Type,Event,Value,Detail,Detail2
+555,stderr,received,'Exception ignored in: <function Visual.__del__ at 0x1078ec2c0>'
+555,stderr,received,'Traceback (most recent call last):'
+555,stderr,received,'  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/expyriment/stimuli/_visual.py", line 266, in __del__'
+555,stderr,received,'    if self._compression_filename is not None:'
+555,stderr,received,"AttributeError: 'Rectangle' object has no attribute '_compression_filename'"
+555,stderr,received,'Traceback (most recent call last):'
+555,stderr,received,'  File "/Users/yixuanzhu/Documents/CogSup/Programming/Assignments/Week-2/Exercises/square.py", line 16, in <module>\n    square = expyriment.stimuli.Rectangle(size = (50, 50), color = (0, 0, 255))'
+555,stderr,received,"TypeError: Rectangle.__init__() got an unexpected keyword argument 'color'. Did you mean 'colour'?"
