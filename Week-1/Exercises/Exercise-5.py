@@ -25,6 +25,9 @@ def print_triangle_o(rows):
     """
     Print a centered triangle made of the letter 'o'.
     """
+    for i in range(rows):
+        print(' ' * (rows - i - 1) + 'o' * (2 * i + 1)+' ' * (rows - i - 1))
+
     pass
 
 sprint("---")
@@ -42,6 +45,12 @@ sprint("Exercise 5.2")
 
 def prod_list_easy(lst):
     """Returns the product of the elements in a number list iteratively."""
+    product = 1
+    for i in range(len(lst)):
+        product = lst[i]*product
+        i += 1
+    return product
+
     pass
 
 sprint("---")
@@ -63,6 +72,12 @@ sprint("Exercise 5.3")
 
 def prod_list_rec(lst):
     """Returns the product of the elements in a number list recursively."""
+    if len(lst) == 0:
+        return 1
+    else:
+        return lst[0] * prod_list_rec(lst[1:])
+
+
     pass
 
 sprint("---")
@@ -88,6 +103,17 @@ def prod_list_rec_full(lst):
     If the list contains non-numeric elements, a message is printed out
     and the function returns nothing.
     """
+    for item in lst:
+        if not isinstance(item, (int, float)):
+            print("The list contains non-numeric elements.")
+            return None
+
+
+    if len(lst) == 0:
+        return 1
+    else:
+        return lst[0] * prod_list_rec_full(lst[1:])
+
     pass
     
 sprint("---")
@@ -104,15 +130,15 @@ expected outputs. If you solved the exercises correctly, the script will tell yo
 """
 
 ### Run test cases
-# if __name__ == "__main__":
-#     from testcases import (
-#         run_tests_ex51,
-#         run_tests_ex52,
-#         run_tests_ex53,
-#         run_tests_ex54,
-#     )
+if __name__ == "__main__":
+     from testcases import (
+         run_tests_ex51,
+         run_tests_ex52,
+         run_tests_ex53,
+         run_tests_ex54,
+     )
 
-#     run_tests_ex51()
-#     run_tests_ex52()
-#     run_tests_ex53()
-#     run_tests_ex54()
+     run_tests_ex51()
+     run_tests_ex52()
+     run_tests_ex53()
+     run_tests_ex54()
