@@ -1,0 +1,12 @@
+#Expyriment 1.0.0 (Python 3.13.7), .xpe-file, coding: UTF-8
+#date: Sat Sep 20 2025 21:46:00
+#sha1: b5df53
+#modules: 
+#display: size=(800, 600), window_mode=True, opengl=2
+#os: uname_result(system='Darwin', node='YixuandeMacBook-Air.local', release='24.6.0', version='Darwin Kernel Version 24.6.0: Mon Jul 14 11:30:40 PDT 2025; root:xnu-11417.140.69~1/RELEASE_ARM64_T8132', machine='arm64')
+Time,Type,Event,Value,Detail,Detail2
+486,stderr,received,'Traceback (most recent call last):'
+487,stderr,received,'  File "/Users/yixuanzhu/Documents/CogSup/Programming/Assignments/Week-2/Exercises/labeled_shapes.py", line 12, in <module>\n    left_square = stimuli.Shape(\n        vertex_list=(50, 50, 50),colour=(255, 0, 0), position=(-100, 0)\n    )'
+487,stderr,received,'  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/expyriment/stimuli/_shape.py", line 164, in __init__\n    self.add_vertices(vertex_list=vertex_list)\n    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^'
+487,stderr,received,'  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/expyriment/stimuli/_shape.py", line 417, in add_vertices\n    raise TypeError(type_error_message)'
+487,stderr,received,'TypeError: The method add_vertices requires a list of tuples as argument.'

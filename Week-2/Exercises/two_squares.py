@@ -15,13 +15,13 @@ right_square = stimuli.Rectangle(
     size=(50, 50), colour=(0, 255, 0), position=(100, 0)
 )
 
-fixation = stimuli.FixCross()
+#fixation = stimuli.FixCross()
 
 control.start(subject_id=1)
 
 left_square.present(clear=True, update=False)
-right_square.present(clear=False, update=False)
-fixation.present(clear=False, update=True)
+right_square.present(clear=False, update=True)
+#fixation.present(clear=False, update=True)
 
 exp.keyboard.wait()
 

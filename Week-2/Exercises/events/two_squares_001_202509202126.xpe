@@ -1,0 +1,19 @@
+#Expyriment 1.0.0 (Python 3.13.7), .xpe-file, coding: UTF-8
+#date: Sat Sep 20 2025 21:26:50
+#sha1: 384d84
+#modules: 
+#display: size=(800, 600), window_mode=True, opengl=2
+#os: uname_result(system='Darwin', node='YixuandeMacBook-Air.local', release='24.6.0', version='Darwin Kernel Version 24.6.0: Mon Jul 14 11:30:40 PDT 2025; root:xnu-11417.140.69~1/RELEASE_ARM64_T8132', machine='arm64')
+Time,Type,Event,Value,Detail,Detail2
+1273,design,log,
+#design: #exp: two_squares
+#design: block_cnt,block_id,trial_cnt,trial_id
+1273,design,logged,
+1273,Experiment,started
+1275,stderr,received,'Traceback (most recent call last):'
+1275,stderr,received,'  File "/Users/yixuanzhu/Documents/CogSup/Programming/Assignments/Week-2/Exercises/two_squares.py", line 22, in <module>\n    left_square.present(clear=True, update=False)\n    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^'
+1275,stderr,received,'  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/expyriment/stimuli/_visual.py", line 1171, in present\n    self.preload(inhibit_ogl_compress=True)\n    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^'
+1275,stderr,received,'  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/expyriment/stimuli/_visual.py", line 1059, in preload\n    self._get_surface(),\n    ~~~~~~~~~~~~~~~~~^^'
+1275,stderr,received,'  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/expyriment/stimuli/_visual.py", line 490, in _get_surface\n    tmp = self._create_surface()'
+1275,stderr,received,'  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/expyriment/stimuli/_rectangle.py", line 237, in _create_surface\n    surface = pygame.surface.Surface(\n              ~~~~~~~~~~~~~~~~~~~~~~^\n        self._size, pygame.SRCALPHA).convert_alpha()\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^'
+1275,stderr,received,'ValueError: size needs to be (number width, number height)'
