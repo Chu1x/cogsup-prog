@@ -1,9 +1,11 @@
 from expyriment import design, control, stimuli
 import expyriment
 
-expyriment.control.defaults.initialise_delay = 0 # No countdown
-expyriment.control.defaults.window_mode = True # Not full-screen
-expyriment.control.defaults.fast_quit = True # No goodbye message
+# expyriment.control.defaults.initialise_delay = 0 # No countdown
+# expyriment.control.defaults.window_mode = True # Not full-screen
+# expyriment.control.defaults.fast_quit = True # No goodbye message
+control.set_develop_mode()
+
 
 exp = design.Experiment(name = "two_squares")
 control.initialize(exp)
