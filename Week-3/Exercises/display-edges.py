@@ -1,5 +1,5 @@
-import expyriment
 from expyriment import design, control, stimuli
+import expyriment
 
 exp = design.Experiment(name="display-edges")
 
@@ -19,14 +19,15 @@ for x in (-w, w):
 
 
 
-square_length=0.05*w
+s_length=0.05*w
 line_width=1
-size = (square_length, square_length)
 
-rectangle_ls = stimuli.Rectangle(size, colour=(255, 0, 0), position=(-w//2, h//2))
-rectangle_li = stimuli.Rectangle(size, colour=(255, 0, 0), position=(-w//2, -h//2))
-rectangle_rs = stimuli.Rectangle(size, colour=(255, 0, 0), position=(w//2, h//2))
-rectangle_ri = stimuli.Rectangle(size, colour=(255, 0, 0), position=(w//2, -h//2))
+size = (s_length, s_length)
+
+rectangle_ls = stimuli.Rectangle(size, colour=(255, 0, 0), line_width=1, position=(-w//2 + s_length //2, h//2 - s_length//2))
+rectangle_li = stimuli.Rectangle(size, colour=(255, 0, 0), line_width=1, position=(-w//2 + s_length //2, -h//2 + s_length //2))
+rectangle_rs = stimuli.Rectangle(size, colour=(255, 0, 0), line_width=1, position=(w//2 - s_length //2, h//2 - s_length //2))
+rectangle_ri = stimuli.Rectangle(size, colour=(255, 0, 0), line_width=1, position=(w//2 - s_length //2, -h//2 + s_length //2))
 
 control.start(subject_id=1)
 rectangle_ls.present(clear=True, update=False)
@@ -34,7 +35,7 @@ rectangle_li.present(clear=False, update=False)
 rectangle_rs.present(clear=False, update=False)
 rectangle_ri.present(clear=False, update=True)
 
-exp.clock.wait(1000)
+exp.keyboard.wait()
 
 control.end()
 
