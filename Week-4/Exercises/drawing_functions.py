@@ -17,9 +17,9 @@ def timed_draw(stims):
 
 def present_for(stims, t=1000):
     dt = timed_draw(stims)
-    for stim in stims:
-        stim.present(clear=True, update=True)
-    exp.clock.wait(t - dt)
+    # for stim in stims:
+    #     stim.present(clear=True, update=False)
+    exp.clock.wait(max(0, t - dt))
 
 
 
