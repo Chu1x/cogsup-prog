@@ -1,47 +1,70 @@
 from expyriment import design, control, stimuli
 import random
 
+def load(stims):
+    for stim in stims:
+        stim.preload()
+    pass
+
 radius = 150       
-low_ISI = 50       
-high_ISI = 300     
-display_dur = 200  
+low_ISI = 50
+high_ISI = 500
+display_dur = 500
 bg_color = (0, 0, 0)
 circle_color = (255, 255, 255)
 tag_colors = [(255, 0, 0), (0, 255, 0), (0, 0, 255)]
 
-
-def present_for(stims, t=display_dur):
+def timed_draw(stims):
     t0 = exp.clock.time
-    for s in stims:
-        s.present(clear=False)
-    exp.screen.update()
-    exp.clock.wait(max(0, t - (exp.clock.time - t0)))
+    for stim in stims:
+        stim.present(clear=False, update=False)
+    t1 = exp.clock.time
+    return t1 - t0
+
+
+def present_for(stims, t=1000):
+    dt = timed_draw(stims)
+    # for stim in stims:
+    #     stim.present(clear=True, update=False)
+    exp.clock.wait(max(0, t - dt))
+
 
 def make_circles(with_tags=False):
-    frames = []
+    """Create frames for Ternus illusion: frame1 = left+center, frame2 = center+right"""
     colors = tag_colors if with_tags else [circle_color]*3
-    # left frame
-    left_circles = [stimuli.Circle(40, colour=colors[i],
-                   position=(-radius + i*radius, 0)) for i in range(3)]
-    # right frame
-    right_circles = [stimuli.Circle(40, colour=colors[i],
-                    position=(-radius + i*radius + radius, 0)) for i in range(3)]
-    frames.append(left_circles)
-    frames.append(right_circles)
-    return frames
+
+    # positions
+    left = -radius
+    center = 0
+    right = radius
+
+    # frame1: left + center
+    frame1 = [stimuli.Circle(40, colour=colors[0], position=(left,0)),
+              stimuli.Circle(40, colour=colors[1], position=(center,0))]
+
+    # frame2: center + right
+    frame2 = [stimuli.Circle(40, colour=colors[1], position=(center,0)),
+              stimuli.Circle(40, colour=colors[2], position=(right,0))]
+
+    return [frame1, frame2]
 
 def run_ternus(frames, isi, label):
-    exp.screen.clear()
-    exp.screen.update()
-    exp.textline.present()
+
+    label_stim = stimuli.TextLine(text=label, text_size=40)
+    label_stim.present()
+    # exp.screen.update()
     exp.clock.wait(1000)
-    for _ in range(6):   
+
+    exp.screen.clear()
+    for _ in range(6): 
         present_for(frames[0])
-        exp.screen.clear(); exp.screen.update()
+        exp.screen.update()
         exp.clock.wait(isi)
+        exp.screen.clear()
         present_for(frames[1])
-        exp.screen.clear(); exp.screen.update()
+        exp.screen.update()
         exp.clock.wait(isi)
+        exp.screen.clear()
 
 
 exp = design.Experiment("Ternus Illusion")
