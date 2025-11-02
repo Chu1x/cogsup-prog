@@ -2,9 +2,8 @@ from expyriment import design, control, stimuli
 from expyriment.misc.constants import C_WHITE, C_BLACK, K_j, K_f, K_SPACE
 import random
 
-# ---------------- Constants ----------------
-# Participants will identify the COLOR (not word meaning)
-KEYS = [K_j, K_f]  # J = red/orange, F = blue/green (counterbalanced if needed)
+""" Constants """
+KEYS = [K_j, K_f] 
 COLORS = ["red", "blue", "green", "orange"]
 TRIAL_TYPES = ["congruent", "incongruent"]
 
@@ -32,7 +31,8 @@ INSTR_END = """You have completed the experiment.\nPress SPACE to quit."""
 FEEDBACK_CORRECT = ""
 FEEDBACK_INCORRECT = ""
 
-# ---------------- Helper Functions ----------------
+
+""" Helper functions """
 def load(stims):
     for stim in stims:
         stim.preload()
@@ -49,7 +49,7 @@ def present_instructions(text):
     screen.present()
     exp.keyboard.wait(K_SPACE)
 
-# ---------------- Experiment Setup ----------------
+""" Global settings """
 exp = design.Experiment(name="Stroop Balanced", background_colour=C_WHITE, foreground_colour=C_BLACK)
 exp.add_data_variable_names(['block', 'trial', 'trial_type', 'word', 'color', 'RT', 'correct'])
 
@@ -59,7 +59,6 @@ control.initialize(exp)
 fixation = stimuli.FixCross()
 fixation.preload()
 
-# Create stimuli for all combinations
 stims = {w: {c: stimuli.TextLine(w, text_colour=c) for c in COLORS} for w in COLORS}
 load([stims[w][c] for w in COLORS for c in COLORS])
 
@@ -67,7 +66,6 @@ feedback_correct = stimuli.TextLine(FEEDBACK_CORRECT)
 feedback_incorrect = stimuli.TextLine(FEEDBACK_INCORRECT)
 load([feedback_correct, feedback_incorrect])
 
-#  ---------------- Design Balancing ---------------- 
 # Create all possible (word, color) pairs
 pairs = []
 for word in COLORS:
@@ -84,13 +82,11 @@ incongruent_trials = incongruent_pairs * 6
 random.shuffle(incongruent_trials)
 incongruent_trials = incongruent_trials[:64]
 
-
-
 # Replicate and trim to 64 of each
 all_trials = congruent_trials + incongruent_trials
 random.shuffle(all_trials)
 
-# ---------------- Trial Function ----------------
+""" Experiment """
 def run_trial(block_id, trial_id, trial_type, word, color):
     stim = stims[word][color]
 
