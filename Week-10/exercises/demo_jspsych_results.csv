@@ -1,0 +1,21 @@
+"rt","stimulus","response","trial_type","trial_index","plugin_version","time_elapsed"
+"2324","
+        <p>Hello!</p>
+        <p>You will be taking part in a toy experiment.
+          You will see one of two letters displayed on the screen (F or J).</p>
+        <p> Your role will be to press the key corresponding to the letter.
+          <b>Please answer as fast as you can!</b></p>
+        <p>Press any key to continue.</p>
+        "," ","html-keyboard-response","0","2.0.0","2326"
+"1000","F","f","html-keyboard-response","1","2.0.0","3327"
+"507","J","j","html-keyboard-response","2","2.0.0","3835"
+"427","J","j","html-keyboard-response","3","2.0.0","4263"
+"340","J","j","html-keyboard-response","4","2.0.0","4604"
+"269","J","j","html-keyboard-response","5","2.0.0","4874"
+"385","F","j","html-keyboard-response","6","2.0.0","5261"
+"220","F","f","html-keyboard-response","7","2.0.0","5482"
+"446","F","f","html-keyboard-response","8","2.0.0","5929"
+"421","J","j","html-keyboard-response","9","2.0.0","6351"
+"528","F","f","html-keyboard-response","10","2.0.0","6880"
+"349","F","f","html-keyboard-response","11","2.0.0","7230"
+"435","J","j","html-keyboard-response","12","2.0.0","7666"
